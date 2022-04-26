@@ -1,6 +1,7 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <a href="{{ route('home') }}" class="brand-link">
-        <img src="dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+        <img src="{{ asset('dist/img/AdminLTELogo.png') }}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
+             style="opacity: .8">
         <span class="brand-text font-weight-light">Fertilizer-crm</span>
     </a>
     <div class="sidebar">
@@ -15,11 +16,35 @@
         <nav class="mt-2">
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                 <li class="nav-item">
+                    <a href="{{ route('clients.index') }}" class="nav-link @if(Route::is('clients.*')) active @endif">
+                        <i class="far fa-user-circle"></i>
+                        <p>
+                            Клиенты
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ route('crops.index') }}" class="nav-link @if(Route::is('crops.*')) active @endif">
+                        <i class="fas fa-layer-group"></i>
+                        <p>
+                            Группы культур
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ route('fertilizers.index') }}" class="nav-link @if(Route::is('fertilizers.*')) active @endif">
+                        <i class="fab fa-pagelines"></i>
+                        <p>
+                            Удобрения
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a href="{{ route('logout') }}" class="nav-link" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                         <i class="fas fa-sign-out-alt"></i>
                         <p>
-                            Logout
+                            Выйти
                         </p>
                     </a>
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">

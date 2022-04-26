@@ -9,12 +9,13 @@
     <link rel="stylesheet" href="{{ asset('plugins/fontawesome-free/css/all.min.css') }}">
     <link rel="stylesheet" href="{{ asset('dist/css/adminlte.min.css') }}">
     <link rel="stylesheet" href="{{ asset('plugins/overlayScrollbars/css/OverlayScrollbars.min.css') }}">
+    @yield('header_scripts')
 </head>
 <body class="hold-transition sidebar-mini layout-fixed @if(Route::is('login') ) login-page @endif">
 @if(Auth::user())
     <div class="wrapper">
         <div class="preloader flex-column justify-content-center align-items-center">
-            <img class="animation__shake" src="dist/img/AdminLTELogo.png" alt="AdminLTELogo" height="60" width="60">
+            <img class="animation__shake" src="{{ asset('dist/img/AdminLTELogo.png') }}" alt="AdminLTELogo" height="60" width="60">
         </div>
         <nav class="main-header navbar navbar-expand navbar-white navbar-light">
             <ul class="navbar-nav">
@@ -39,7 +40,10 @@
 <script src="{{ asset('plugins/jquery/jquery.min.js') }}"></script>
 <script src="{{ asset('plugins/jquery-ui/jquery-ui.min.js') }}"></script>
 <script src="{{ asset('plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+<script src="{{ asset('plugins/moment/moment.min.js') }}"></script>
+<script src="{{ asset('plugins/daterangepicker/daterangepicker.js') }}"></script>
 <script src="{{ asset('plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js') }}"></script>
 <script src="{{ asset('dist/js/adminlte.js') }}"></script>
+@yield('footer_scripts')
 </body>
 </html>
