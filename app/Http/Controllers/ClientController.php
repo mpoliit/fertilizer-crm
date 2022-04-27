@@ -26,7 +26,6 @@ class ClientController extends Controller
 
     public function create()
     {
-
         return view('client.credit');
     }
 
@@ -41,7 +40,6 @@ class ClientController extends Controller
 
     public function edit(Client $client)
     {
-
         return view('client.credit', compact('client'));
     }
 

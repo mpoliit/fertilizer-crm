@@ -40,6 +40,14 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a href="{{ route('users.index') }}" class="nav-link @if(Route::is('users.*')) active @endif">
+                        <i class="fas fa-users"></i>
+                        <p>
+                            Пользователи
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a href="{{ route('logout') }}" class="nav-link" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                         <i class="fas fa-sign-out-alt"></i>

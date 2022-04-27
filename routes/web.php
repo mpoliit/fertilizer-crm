@@ -25,4 +25,5 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('crops', \App\Http\Controllers\CropController::class)->except('show');
     Route::resource('fertilizers', \App\Http\Controllers\FertilizerController::class)->except('show');
     Route::resource('clients', \App\Http\Controllers\ClientController::class)->except('show');
+    Route::resource('users', \App\Http\Controllers\UserController::class)->except('show');
 });
