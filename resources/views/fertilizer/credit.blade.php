@@ -41,32 +41,41 @@
                                         <label for="azot">Норма Азот</label>
                                         <input type="number"
                                                step="0.01"
-                                               class="form-control"
+                                               class="form-control @error('azot') is-invalid @enderror"
                                                id="azot"
                                                name="azot"
                                                value="{{ old('azot', $fertilizer->azot ?? '') }}">
+                                        @error('azot')
+                                        <span class="text-danger">{{ $message }}</span>
+                                        @enderror
                                     </div>
                                     <div class="form-group">
                                         <label for="phosphor">Норма Фосфор</label>
                                         <input type="number"
                                                step="0.01"
-                                               class="form-control"
+                                               class="form-control @error('phosphor') is-invalid @enderror"
                                                id="phosphor"
                                                name="phosphor"
                                                value="{{ old('phosphor', $fertilizer->phosphor ?? '') }}">
+                                        @error('phosphor')
+                                        <span class="text-danger">{{ $message }}</span>
+                                        @enderror
                                     </div>
                                     <div class="form-group">
                                         <label for="potassium">Норма Калий</label>
                                         <input type="number"
                                                step="0.01"
-                                               class="form-control"
+                                               class="form-control @error('potassium') is-invalid @enderror"
                                                id="potassium"
                                                name="potassium"
                                                value="{{ old('potassium', $fertilizer->potassium ?? '') }}">
+                                        @error('potassium')
+                                        <span class="text-danger">{{ $message }}</span>
+                                        @enderror
                                     </div>
                                     <div class="form-group">
                                         <label>Группа культур*</label>
-                                        <select class="form-control"
+                                        <select class="form-control @error('crop_id') is-invalid @enderror"
                                                 id="crop_id"
                                                 name="crop_id"
                                                 required>
@@ -76,14 +85,20 @@
                                                         value="{{ $crop->id }}">{{ $crop->title }}</option>
                                             @endforeach
                                         </select>
+                                        @error('crop_id')
+                                        <span class="text-danger">{{ $message }}</span>
+                                        @enderror
                                     </div>
                                     <div class="form-group">
                                         <label for="region">Регион</label>
                                         <input type="text"
-                                               class="form-control"
+                                               class="form-control @error('region') is-invalid @enderror"
                                                id="region"
                                                name="region"
                                                value="{{ old('region', $fertilizer->region ?? '') }}">
+                                        @error('region')
+                                        <span class="text-danger">{{ $message }}</span>
+                                        @enderror
                                     </div>
                                     <div class="form-group">
                                         <label for="price">Стоимость*</label>
@@ -100,17 +115,18 @@
                                     </div>
                                     <div class="form-group">
                                         <label>Описание</label>
-                                        <textarea class="form-control"
+                                        <textarea class="form-control @error('description') is-invalid @enderror"
                                                   rows="3"
                                                   id="description"
                                                   name="description">{{ old('description', $fertilizer->description ?? '') }}</textarea>
+                                        @error('description')
+                                        <span class="text-danger">{{ $message }}</span>
+                                        @enderror
                                     </div>
-
-
                                     <div class="form-group">
                                         <label for="purpose">Назначение</label>
                                         <input type="text"
-                                               class="form-control"
+                                               class="form-control @error('purpose') is-invalid @enderror"
                                                id="purpose"
                                                name="purpose"
                                                value="{{ old('purpose', $fertilizer->purpose ?? '') }}">
