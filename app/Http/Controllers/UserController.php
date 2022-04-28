@@ -7,6 +7,7 @@ use App\Http\Requests\User\UpdateUserRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use function Symfony\Component\Mime\Header\get;
 
 class UserController extends Controller
 {
@@ -63,5 +64,20 @@ class UserController extends Controller
         $user->delete();
 
         return redirect()->route('users.index');
+    }
+
+    public function showTrashed()
+    {
+        $columns = [
+            'ID',
+            'Имя',
+            'Email',
+            'Дата создания',
+            'Дата удаления'
+        ];
+
+        $users = User::onlyTrashed()->get();
+
+        return view('user.trashed', compact('columns', 'users'));
     }
 }

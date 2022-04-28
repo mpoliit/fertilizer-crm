@@ -42,6 +42,7 @@
                                     @endforeach
                                     @include('_include.table-foot', $columns)
                                 </table>
+                                <a href="{{ route('fertilizers.trashed') }}" class="btn btn-danger">Просмотр удаленных удобрений</a>
                             </div>
                         </div>
                     </div>

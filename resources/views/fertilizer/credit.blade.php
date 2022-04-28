@@ -81,7 +81,7 @@
                                                 required>
                                             @foreach($crops as $crop)
                                                 <option
-                                                        {{ old('crop_id') == $crop->id || $fertilizer->crop_id == $crop->id ? "selected" : "" }}
+                                                        {{ old('crop_id') || isset($fertilizer) && $fertilizer->crop_id == $crop->id ? "selected" : "" }}
                                                         value="{{ $crop->id }}">{{ $crop->title }}</option>
                                             @endforeach
                                         </select>

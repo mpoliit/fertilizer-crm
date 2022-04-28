@@ -70,4 +70,26 @@ class FertilizerController extends Controller
 
         return redirect()->route('fertilizers.index');
     }
+
+    public function showTrashed()
+    {
+        $columns = [
+            'ID',
+            'Наименование',
+            'Норма Азот',
+            'Норма Фосфор',
+            'Норма Калий',
+            'Группа культур',
+            'Регион',
+            'Стоимость',
+            'Описание',
+            'Назначение',
+            'Дата создания',
+            'Дата удаления'
+        ];
+
+        $fertilizers = Fertilizer::onlyTrashed()->get();
+
+        return view('fertilizer.trashed', compact('columns', 'fertilizers'));
+    }
 }

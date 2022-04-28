@@ -37,6 +37,7 @@
                                     @endforeach
                                     @include('_include.table-foot', $columns)
                                 </table>
+                                <a href="{{ route('clients.trashed') }}" class="btn btn-danger">Просмотр удаленных клиентов</a>
                             </div>
                         </div>
                     </div>

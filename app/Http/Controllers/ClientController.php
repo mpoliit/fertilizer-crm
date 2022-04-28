@@ -58,4 +58,21 @@ class ClientController extends Controller
 
         return redirect()->route('clients.index');
     }
+
+    public function showTrashed()
+    {
+        $columns = [
+            'ID',
+            'Наименование',
+            'Дата договора',
+            'Стоимость поставки',
+            'Регион',
+            'Дата создания',
+            'Дата удаления'
+        ];
+
+        $clients = Client::onlyTrashed()->get();
+
+        return view('client.trashed', compact('columns', 'clients'));
+    }
 }

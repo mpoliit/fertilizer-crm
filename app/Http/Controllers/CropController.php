@@ -57,4 +57,18 @@ class CropController extends Controller
 
         return redirect()->route('crops.index');
     }
+
+    public function showTrashed()
+    {
+        $columns = [
+            'ID',
+            'Наименование',
+            'Дата создания',
+            'Дата удаления'
+        ];
+
+        $crops = Crop::onlyTrashed()->get();
+
+        return view('crop.trashed', compact('columns', 'crops'));
+    }
 }

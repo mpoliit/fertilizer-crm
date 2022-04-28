@@ -6,10 +6,7 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0">Пользователи</h1>
-                    </div>
-                    <div class="col-sm-6">
-                        <a href="{{ route('users.create') }}" class="btn btn-outline-primary float-right">Создать</a>
+                        <h1 class="m-0">Удаленные пользователи</h1>
                     </div>
                 </div>
             </div>
@@ -26,16 +23,15 @@
                                     <tbody>
                                     @foreach($users as $user)
                                         <tr>
-                                            <td><a href="{{ route('users.edit', $user->id) }}"><i class="fas fa-edit"></i></a></td>
                                             <td>{{ $user->id }}</td>
                                             <td>{{ $user->name }}</td>
                                             <td>{{ $user->email }}</td>
                                             <td>{{ date('H:i:s d.m.Y', strtotime($user->created_at)) }}</td>
+                                            <td>{{ date('H:i:s d.m.Y', strtotime($user->deleted_at)) }}</td>
                                         </tr>
                                     @endforeach
                                     @include('_include.table-foot', $columns)
                                 </table>
-                                <a href="{{ route('users.trashed') }}" class="btn btn-danger">Просмотр удаленных пользователей</a>
                             </div>
                         </div>
                     </div>
